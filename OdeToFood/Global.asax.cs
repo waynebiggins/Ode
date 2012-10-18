@@ -22,6 +22,12 @@ namespace OdeToFood
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "Cuisine",
+                "cuisine/{name}",
+                new { controller = "Cuisine", action = "Search", name=UrlParameter.Optional }
+                );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
