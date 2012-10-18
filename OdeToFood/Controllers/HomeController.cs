@@ -15,7 +15,8 @@ namespace OdeToFood.Controllers
             var model = new RestaurantReview()
             {
                 Name = "Jim Baxters",
-                Rating = 5
+                Rating = 5,
+                Comment = "This place is rubbish"
             };
 
             return View(model);
