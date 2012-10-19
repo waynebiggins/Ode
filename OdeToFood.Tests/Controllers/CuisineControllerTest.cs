@@ -13,6 +13,7 @@ namespace OdeToFood.Tests.Controllers
     public class CuisineControllerTest
     {
         [Test]
+        [Ignore("Mock Server needed")]
         public void Search()
         {
             // Arrange

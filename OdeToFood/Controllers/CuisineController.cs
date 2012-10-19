@@ -13,7 +13,7 @@ namespace OdeToFood.Controllers
 
         public ActionResult Search(string name = "*")
         {
-     //       name = Server.HtmlEncode(name);
+          name = Server.HtmlEncode(name);
             return Content(name);
         }
 
