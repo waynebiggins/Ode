@@ -12,13 +12,10 @@ namespace OdeToFood.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
-            var model = new RestaurantReview()
-            {
-                Name = "Jim Baxters",
-                Rating = 5,
-                Comment = "This place is rubbish"
-            };
-
+            var model = new RestaurantReview();
+            model.Name = "Jim Baxter";
+            model.Rating = 5;
+            model.Comment = "This place sucks";
             return View(model);
         }
 
