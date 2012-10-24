@@ -9,6 +9,7 @@ namespace OdeToFood.Controllers
 {
     public class HomeController : Controller
     {
+       
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
@@ -18,7 +19,7 @@ namespace OdeToFood.Controllers
             model.Comment = "This place sucks";
             return View(model);
         }
-
+         
         public ActionResult About()
         {
             return View();
