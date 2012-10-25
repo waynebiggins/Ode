@@ -8,19 +8,19 @@ namespace OdeToFood.Queries
 {
     public static class Extension
     {
-        public static List<RestaurantReview> FindTheLatest(this List<RestaurantReview> reviews, int num)
+        public static List<Review> FindTheLatest(this List<Review> reviews, int num)
         {
             return reviews.OrderByDescending(o => o.Created)
                           .Take(num)
                           .ToList();
         }
 
-        public static RestaurantReview FindById(this List<RestaurantReview> list, int id)
+        public static Review FindById(this List<Review> list, int id)
         {
             return list.SingleOrDefault(s => s.Id == id);
         }
 
-        public static RestaurantReview FindTheBest(this List<RestaurantReview> list)
+        public static Review FindTheBest(this List<Review> list)
         {
             return list.OrderByDescending(o => o.Rating).FirstOrDefault();
         }

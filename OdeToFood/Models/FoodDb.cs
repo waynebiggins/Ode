@@ -7,8 +7,8 @@ namespace OdeToFood.Models
 {
     public class FoodDb
     {
-        private static List<RestaurantReview> _reviews { get; set; }
-        public List<RestaurantReview> Reviews
+        private static List<Review> _reviews { get; set; }
+        public List<Review> Reviews
         {
             get
             {
@@ -18,32 +18,42 @@ namespace OdeToFood.Models
 
         static FoodDb()
         {
-            _reviews = new List<RestaurantReview>();
-            _reviews.Add(new RestaurantReview
+            _reviews = new List<Review>();
+            _reviews.Add(new Review
             {
-                Id= 1,
-                Name = "Jim Baxters",
-                Comment = "This is poor",
+                Id = 1,
+                Body = "This is poor",
                 Rating = 5,
                 Created = DateTime.Now,
+                Restaurant = new Restaurant
+                {
+                    Name = "Jimbaxters"
+                }
+
             }
                 );
-            _reviews.Add(new RestaurantReview
+            _reviews.Add(new Review
             {
-                Id=2,
-                Name = "Jim McCocks",
-                Comment = "Wonderful",
+                Id=2,              
+                Body = "Wonderful",
                 Rating = 8,
                 Created = DateTime.Now,
+                Restaurant = new Restaurant
+                {
+                    Name = "GingerMarks"
+                }
             }
                );
-            _reviews.Add(new RestaurantReview
+            _reviews.Add(new Review
             {
-                Id=3,
-                Name = "Robbos Ginger Palace",
-                Comment = "Best Meal Ever",
+                Id=3,           
+                Body = "Best Meal Ever",
                 Rating = 10,
                 Created = DateTime.Now,
+                Restaurant = new Restaurant
+                {
+                    Name = "Sachas Sex Emporium"
+                }
             }
                );
         }
