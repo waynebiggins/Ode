@@ -60,7 +60,8 @@ namespace OdeToFood.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            var review = _db.Reviews.FindById(id);
+            return View(review);
         }
 
         //
@@ -69,16 +70,14 @@ namespace OdeToFood.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-            try
-            {
-                // TODO: Add update logic here
- 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
+          
+                var review = _db.Reviews.FindById(id);
+                if (TryUpdateModel(review))
+                {
+                    return RedirectToAction("Index");
+                }
                 return View();
-            }
+            
         }
 
         //
