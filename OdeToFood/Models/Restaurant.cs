@@ -9,6 +9,6 @@ namespace OdeToFood.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public string StreetAddress  { get; set; }
+        public string Address  { get; set; }
     }
 }

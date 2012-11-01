@@ -10,13 +10,13 @@ namespace OdeToFood.Controllers
 {
     public class ReviewsController : Controller
     {
-        FoodDb _db = new FoodDb();
+        OdeToFoodDB _db = new OdeToFoodDB();
         //
         // GET: /Reviews/
 
         public ActionResult Index()
         {
-            var model = _db.Reviews.FindTheLatest(3);
+            var model = _db.Reviews;
 
             return View(model);
         }
@@ -60,7 +60,7 @@ namespace OdeToFood.Controllers
  
         public ActionResult Edit(int id)
         {
-            var review = _db.Reviews.FindById(id);
+            var review = _db.Reviews.Find(id);
             return View(review);
         }
 
@@ -70,8 +70,8 @@ namespace OdeToFood.Controllers
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-          
-                var review = _db.Reviews.FindById(id);
+
+            var review = _db.Reviews.Find(id);
                 if (TryUpdateModel(review))
                 {
                     return RedirectToAction("Index");
