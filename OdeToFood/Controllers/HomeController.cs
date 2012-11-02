@@ -13,7 +13,7 @@ namespace OdeToFood.Controllers
         //FoodDb _db = new FoodDb();
         public ActionResult Index()
         {
-            //ViewBag.Message = "Welcome to ASP.NET MVC!";
+            ViewBag.Message = "Welcome to ASP.NET MVC!";
             //var model = _db.Reviews.FindTheBest();
             //var model = new Review();
             //model.Name = "Jim Baxter";
