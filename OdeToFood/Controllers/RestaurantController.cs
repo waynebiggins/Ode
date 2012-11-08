@@ -24,5 +24,22 @@ namespace OdeToFood.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Create(Restaurant newRestaurant)
+        {
+            try
+            {
+                using (_db)
+                {
+                    _db.Restaurants.Add(newRestaurant);
+                    _db.SaveChanges();
+                }
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
