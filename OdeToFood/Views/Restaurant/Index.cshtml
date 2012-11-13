@@ -5,7 +5,10 @@
 }
 
 <h2>Index</h2>
-
+@using (Html.BeginForm("Index","Restaurant",FormMethod.Get)){
+@Html.DropDownList("state", new SelectList(ViewBag.States))
+<input type="submit" value="Filter" />
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
