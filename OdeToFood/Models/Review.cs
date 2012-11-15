@@ -7,10 +7,10 @@ namespace OdeToFood.Models
 {
     public class Review
     {
-        public int Id { get; set; }
-        public int Rating { get; set; }
-        public string Body { get; set; }
-        public DateTime Created { get; set; }
-        public Restaurant Restaurant { get; set; }
+        public virtual int Id { get; set; }
+        public virtual int Rating { get; set; }
+        public virtual string Body { get; set; }
+        public virtual DateTime Created { get; set; }
+        public virtual Restaurant Restaurant { get; set; }
     }
 }
