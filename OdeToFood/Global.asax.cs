@@ -40,7 +40,7 @@ namespace OdeToFood
 
         protected void Application_Start()
         {
-           // Database.SetInitializer(new OdeToFoodDBInitializer());
+           Database.SetInitializer(new OdeToFoodDBInitializer());
 
             AreaRegistration.RegisterAllAreas();
 
