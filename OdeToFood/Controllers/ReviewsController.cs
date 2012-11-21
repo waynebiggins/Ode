@@ -41,10 +41,11 @@ namespace OdeToFood.Controllers
         // POST: /Reviews/Create
 
         [HttpPost]
-        public ActionResult Create(int restaurantID,Review newReview)
+        public ActionResult Create(int restaurantID, Review newReview)
         {
             try
             {
+                newReview.Created = DateTime.Now;
                 var restaurant = _db.Restaurants.Single(r => r.ID == restaurantID);
                 restaurant.Reviews.Add(newReview);
                 _db.SaveChanges();
