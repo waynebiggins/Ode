@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OdeToFood.Models;
+using System.Data;
 
 namespace OdeToFood.Controllers
 {
@@ -59,6 +60,30 @@ namespace OdeToFood.Controllers
         {
             var model = _db.Restaurants.Single(r => r.ID == id);
                 return View(model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            var restaurant = _db.Restaurants.Find(id);
+
+            return View(restaurant);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Restaurant restaurant)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                _db.Entry(restaurant).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Details", new { id = restaurant.ID });
+
+            }
+            restaurant = _db.Restaurants.Find(restaurant.ID);
+            return View(restaurant);
+
         }
     }
 }
