@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using OdeToFood.Models;
 using OdeToFood.Queries;
+using System.Data;
 
 namespace OdeToFood.Controllers
 {
@@ -70,14 +71,17 @@ namespace OdeToFood.Controllers
         // POST: /Reviews/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Review review)
         {
 
-            var review = _db.Reviews.Find(id);
-                if (TryUpdateModel(review))
-                {
-                    return RedirectToAction("Index");
-                }
+            if (ModelState.IsValid)
+            {
+                review.Created = DateTime.Now;
+                _db.Entry(review).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
                 return View(review);
             
         }
