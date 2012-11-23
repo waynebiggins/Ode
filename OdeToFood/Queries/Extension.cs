@@ -9,12 +9,12 @@ namespace OdeToFood.Queries
 {
     public static class Extension
     {
-        public static List<Review> FindTheLatest(this List<Review> reviews, int num)
-        {
-            return reviews.OrderByDescending(o => o.Created)
-                          .Take(num)
-                          .ToList();
-        }
+        //public static List<Review> FindTheLatest(this List<Review> reviews, int num)
+        //{
+        //    return reviews.OrderByDescending(o => o.Created)
+        //                  .Take(num)
+        //                  .ToList();
+        //}
 
         public static Review FindById(this List<Review> list, int id)
         {

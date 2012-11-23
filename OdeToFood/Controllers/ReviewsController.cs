@@ -46,7 +46,7 @@ namespace OdeToFood.Controllers
         {
             try
             {
-                newReview.Created = DateTime.Now;
+               
                 var restaurant = _db.Restaurants.Single(r => r.ID == restaurantID);
                 restaurant.Reviews.Add(newReview);
                 _db.SaveChanges();
@@ -76,15 +76,18 @@ namespace OdeToFood.Controllers
 
             if (ModelState.IsValid)
             {
-                review.Created = DateTime.Now;
+
                 _db.Entry(review).State = EntityState.Modified;
                 _db.SaveChanges();
                 return RedirectToAction("Index");
 
             }
-                return View(review);
-            
+            review = _db.Reviews.Find(review.Id);
+            return View(review);
+
         }
+
+      
 
         //
         // GET: /Reviews/Delete/5
