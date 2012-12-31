@@ -10,26 +10,16 @@ namespace OdeToFood.Controllers
 {
     public class RestaurantController : Controller
     {
-        //
-        // GET: /Restaurant/
+       
         OdeToFoodDB _db = new OdeToFoodDB();
 
         public ActionResult Index(string state)
         {
-            ViewBag.States = _db.Restaurants.Select(r => r.Address.State).Distinct();
+           
             var model =
                 _db.Restaurants
-                .OrderBy(r => r.Address.City)
-                .Where(r => r.Address.State == state || (state == null));
-                
-
-
-
-            //var model = from r in _db.Restaurants
-            //            orderby r.Name
-            //            where r.Address.State == state || (state == null)
-            //            select r;
-                        
+                .OrderBy(r => r.Name);
+                                  
             return View(model);
         }
 
