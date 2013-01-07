@@ -13,7 +13,7 @@ namespace OdeToFood.Controllers
        
         OdeToFoodDB _db = new OdeToFoodDB();
 
-        public ActionResult Index(string state)
+        public ActionResult Index()
         {
            
             var model =
